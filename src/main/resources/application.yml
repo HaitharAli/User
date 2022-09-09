@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:mysql://host.docker.internal:3306/usermodule
+    username: root
+    password: Mysqldb@1
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  application:
+    name: user-service
+
+  cloud:
+    consul:
+      host: host.docker.internal
+      discovery:
+        health-check-path: /test
+        prefer-agent-address: false
+        prefer-ip-address: true 
